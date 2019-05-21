@@ -1,18 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, Injector } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
+import { AlertBoxComponent } from './alertbox/alertbox.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AlertBoxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
+  entryComponents: [AppComponent, AlertBoxComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(private injector: Injector) {
+    const el = createCustomElement(AlertBoxComponent, {injector});
+    customElements.define('alert-box', el);
+  }
+  ngDoBootstrap() {
+
+  }
+}

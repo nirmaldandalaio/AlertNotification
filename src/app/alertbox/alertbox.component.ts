@@ -6,12 +6,16 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./alertbox.component.sass']
 })
 export class AlertBoxComponent implements OnInit {
-  public showBox: boolean = true;
-  @Input() label: string;
+  @Input() content: string;
+  @Input() alerttype: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public get showAlert(): boolean {
+    return this.content ? true : false;
   }
 
 }

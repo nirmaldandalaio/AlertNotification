@@ -4,6 +4,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { AlertBoxComponent } from './alertbox/alertbox.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { AlertBoxComponent } from './alertbox/alertbox.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   entryComponents: [AppComponent, AlertBoxComponent],

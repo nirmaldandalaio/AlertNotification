@@ -1,8 +1,10 @@
-<div *ngIf='showBox' class="alertBox {{ label | lowercase}}">
-  <div class="alert-header">
-    <p>{{label}}</p>
-  </div>
-  <div class="alert-body">
-    <p class="content">Alert Notification</p>
-  </div>
+<div class="wrapper" *ngIf="showAlert">
+  <aside>
+    <div class="notification"
+      [ngClass]="{'is-info': alerttype=='info',
+                  'is-danger': alerttype=='danger',
+                  'is-success': alerttype=='success'}">
+      {{content}}
+    </div>
+  </aside>
 </div>

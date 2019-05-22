@@ -1,10 +1,8 @@
-<div class="wrapper" *ngIf="showAlert">
+<div class="wrapper">
   <aside>
-    <div class="notification"
-      [ngClass]="{'is-info': alerttype=='info',
-                  'is-danger': alerttype=='danger',
-                  'is-success': alerttype=='success'}">
-      {{content}}
-    </div>
+      <div *ngFor="let alert of alerts" class="{{ getAlertBoxClass(alert) }}">
+          {{alert.message}}
+          <a class="close" (click)="removeAlert(alert)">&times;</a>
+      </div>
   </aside>
 </div>

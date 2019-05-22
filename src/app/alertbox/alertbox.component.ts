@@ -1,21 +1,23 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Alert, AlertType } from '../models/alert';
 import { AlertBoxService } from '../services/alertbox.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-alertbox',
   templateUrl: './alertbox.component.html',
   styleUrls: ['./alertbox.component.sass']
 })
-export class AlertBoxComponent implements OnInit {
+export class AlertBoxComponent implements OnInit, OnDestroy {
   @Input() id: string;
+  private alertListener: Subscription;
   alerts: Alert[] = [];
 
   constructor(private alertService: AlertBoxService) { } // Injecting the alert service into the component.
 
   // Subscribes to the getAlert method in the Alert Service
   ngOnInit() {
-    this.alertService.getAlert('001').subscribe((alert: Alert) => {
+    this.alertListener = this.alertService.getAlert().subscribe((alert: Alert) => {
       if (!alert.message) {
           // clear alerts when message is empty
           this.alerts = [];
@@ -25,6 +27,12 @@ export class AlertBoxComponent implements OnInit {
       // push new alert to the array
       this.alerts.push(alert);
     });
+  }
+
+  ngOnDestroy() {
+    if (this.alertListener) {
+      this.alertListener.unsubscribe();
+    }
   }
 
   // Called when user clicks on the close icon of the alert

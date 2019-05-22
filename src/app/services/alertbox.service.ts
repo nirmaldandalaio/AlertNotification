@@ -12,7 +12,7 @@ export class AlertBoxService {
     }
 
     // subscribe to alerts
-    getAlert(alertId?: string): Observable<any> {
+    getAlert(): Observable<any> {
         return this.subject;
     }
 
@@ -23,10 +23,5 @@ export class AlertBoxService {
     // main alert method
     alert(alert: Alert) {
         this.subject.next(alert);
-    }
-
-    // clear alerts
-    clear(alertId?: string) {
-        this.subject.next(new Alert({ alertId }));
     }
 }

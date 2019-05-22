@@ -26,8 +26,4 @@ export class HomepageComponent {
   warning(message: string) {
     this.alertService.callAlertType(AlertType.Warning, message);
   }
-
-  clear() {
-    this.alertService.clear();
-}
 }

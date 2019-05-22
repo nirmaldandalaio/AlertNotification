@@ -6,5 +6,5 @@ import { Component, Injector } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'angularElements';
+  title = 'Angular AlertBox';
 }

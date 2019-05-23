@@ -3,11 +3,19 @@ import { Alert, AlertType } from '../models/alertconfig';
 import { AlertBoxService } from '../services/alertbox.service';
 import { Subscription } from 'rxjs';
 
+/* ===================
+  Notes:
+  ------
+  1. The alert component can be used in an angular environment or framework agnostically
+  2. To be used with other frameworks, the native ViewEncapsulation feature in angular can be used
+  3. Using a bundler we can bundle all the parts of the angular component into minified js and generates a script link
+
+=================== */
 @Component({
   selector: 'app-alertbox',
   templateUrl: './alertbox.component.html',
   styleUrls: ['./alertbox.component.sass'],
-  encapsulation: ViewEncapsulation.Native,
+  encapsulation: ViewEncapsulation.ShadowDom, // Used to be ViewEncapsulation.Native which is now deprecated.
 })
 export class AlertBoxComponent implements OnInit, OnDestroy {
   @Input() id: string;
@@ -31,7 +39,7 @@ export class AlertBoxComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    //Removes the subscriber
+    // Removes the subscriber
     if (this.alertListener) {
       this.alertListener.unsubscribe();
     }

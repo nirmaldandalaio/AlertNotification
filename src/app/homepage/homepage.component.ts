@@ -13,17 +13,17 @@ export class HomepageComponent {
 
   callAlertService(message: string) {
     const target = event.target as HTMLTextAreaElement;
-    switch(target.id) {
-      case "success-alert":
+    switch (target.id) {
+      case 'success-alert':
         this.alertService.callAlertType(AlertType.Success, message, target.id);
         break;
-      case "error-alert":
+      case 'error-alert':
         this.alertService.callAlertType(AlertType.Error, message, target.id);
         break;
-      case "information-alert":
+      case 'information-alert':
         this.alertService.callAlertType(AlertType.Info, message, target.id);
         break;
-      case "warning-alert":
+      case 'warning-alert':
         this.alertService.callAlertType(AlertType.Warning, message, target.id);
         break;
     }

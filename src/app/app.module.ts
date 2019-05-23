@@ -8,14 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertBoxService } from './services/alertbox.service';
 import { HomepageComponent } from './homepage/homepage.component';
 
-/* ===================
-  Notes:
-  ------
-  1. The alert component here is assumed to be used in an angular environment
-  2. To be used with other frameworks, the native ViewEncapsulation feature in angular can be used
-  3. This bundles all the parts of the angular component into minified js and generates a script link
-
-=================== */
 @NgModule({
   declarations: [
     AppComponent,

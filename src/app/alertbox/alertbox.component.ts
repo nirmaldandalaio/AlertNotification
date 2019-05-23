@@ -30,6 +30,7 @@ export class AlertBoxComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    //Removes the subscriber
     if (this.alertListener) {
       this.alertListener.unsubscribe();
     }

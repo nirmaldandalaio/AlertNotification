@@ -2,14 +2,22 @@ p
   margin: 0
   padding: 0
 .wrapper
-  width: 100%
-  padding-left: 10px
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
   position: absolute
   right: 0
   color: #fff
   z-index: 999
   margin-top: 10px
+  .alert 
+    position: relative
+    padding: .75rem 1.25rem
+    margin-bottom: 1rem
+    border: 1px solid transparent
+    border-radius: .25rem
+    width: 100%
+    font-size: 1.25em
+  .alertcontent 
+    margin-right: 2%
   .alert-header
     padding-top: 5px
     padding-bottom: 5px
@@ -22,6 +30,8 @@ p
   .is-warning
     background: #ffc107
     color: #000
+  .close
+    cursor: pointer
 .hidden
   position: absolute
   width: 0

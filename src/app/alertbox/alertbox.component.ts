@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Alert, AlertType } from '../models/alertconfig';
 import { AlertBoxService } from '../services/alertbox.service';
 import { Subscription } from 'rxjs';
@@ -6,7 +6,8 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-alertbox',
   templateUrl: './alertbox.component.html',
-  styleUrls: ['./alertbox.component.sass']
+  styleUrls: ['./alertbox.component.sass'],
+  encapsulation: ViewEncapsulation.Native,
 })
 export class AlertBoxComponent implements OnInit, OnDestroy {
   @Input() id: string;

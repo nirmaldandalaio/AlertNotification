@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 
-import { Alert, AlertType } from '../models/alert';
+import { Alert, AlertType } from '../models/alertconfig';
 
 @Injectable()
 export class AlertBoxService {
@@ -16,8 +16,8 @@ export class AlertBoxService {
         return this.subject;
     }
 
-    callAlertType(alerttype: AlertType, message: string) {
-        this.alert(new Alert({ message, type: alerttype }));
+    callAlertType(alerttype: AlertType, message: string, id: string) {
+        this.alert(new Alert({ message, type: alerttype, id }));
     }
 
     // main alert method

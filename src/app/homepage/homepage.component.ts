@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertBoxService } from '../services/alertbox.service';
-import { AlertType } from '../models/alert';
+import { AlertType } from '../models/alertconfig';
 
 @Component({
   selector: 'app-homepage',
@@ -11,19 +11,21 @@ export class HomepageComponent {
 
   constructor(private alertService: AlertBoxService) { }
 
-  success(message: string) {
-    this.alertService.callAlertType(AlertType.Success, message);
-  }
-
-  error(message: string) {
-    this.alertService.callAlertType(AlertType.Error, message);
-  }
-
-  information(message: string) {
-      this.alertService.callAlertType(AlertType.Info, message);
-  }
-
-  warning(message: string) {
-    this.alertService.callAlertType(AlertType.Warning, message);
+  callAlertService(message: string) {
+    const target = event.target as HTMLTextAreaElement;
+    switch(target.id) {
+      case "success-alert":
+        this.alertService.callAlertType(AlertType.Success, message, target.id);
+        break;
+      case "error-alert":
+        this.alertService.callAlertType(AlertType.Error, message, target.id);
+        break;
+      case "information-alert":
+        this.alertService.callAlertType(AlertType.Info, message, target.id);
+        break;
+      case "warning-alert":
+        this.alertService.callAlertType(AlertType.Warning, message, target.id);
+        break;
+    }
   }
 }

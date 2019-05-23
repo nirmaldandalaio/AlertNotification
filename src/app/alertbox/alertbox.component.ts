@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
-import { Alert, AlertType } from '../models/alert';
+import { Alert, AlertType } from '../models/alertconfig';
 import { AlertBoxService } from '../services/alertbox.service';
 import { Subscription } from 'rxjs';
 

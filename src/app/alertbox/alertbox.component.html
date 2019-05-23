@@ -1,7 +1,7 @@
 <div class="wrapper">
-  <aside>
+  <aside class="alertboxwrapper">
       <div *ngFor="let alert of alerts" class="{{ getAlertBoxClass(alert) }}" aria-hidden="false" attr.aria-labelledby="{{alert.id}}">
-          <span class="alertcontent">{{alert.message}}</span>
+          <div class="alertcontent">{{alert.message}}</div>
           <a class="close" role="button" (click)="removeAlert(alert)">&times;</a>
       </div>
   </aside>

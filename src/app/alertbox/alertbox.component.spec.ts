@@ -41,9 +41,9 @@ describe('AlertBoxComponent', () => {
   it('should show alert', (): void => {
     fixture.detectChanges();
     const element = fixture.nativeElement;
-    let className:string = element.querySelector('.alert').className;
+    let className: string = element.querySelector('.alert').className;
     expect(className.indexOf('alert')).toBeGreaterThan(-1);
-    let colorClass:string = element.querySelector('.is-success').className;
+    let colorClass: string = element.querySelector('.is-success').className;
     expect(colorClass.indexOf('is-success')).toBeGreaterThan(-1);
   });
 

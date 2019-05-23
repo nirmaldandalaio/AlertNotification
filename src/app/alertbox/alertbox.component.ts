@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
   selector: 'app-alertbox',
   templateUrl: './alertbox.component.html',
   styleUrls: ['./alertbox.component.sass'],
-  encapsulation: ViewEncapsulation.ShadowDom, // Used to be ViewEncapsulation.Native which is now deprecated.
+  // encapsulation: ViewEncapsulation.ShadowDom, // Used to be ViewEncapsulation.Native which is now deprecated.
 })
 export class AlertBoxComponent implements OnInit, OnDestroy {
   @Input() id: string;
